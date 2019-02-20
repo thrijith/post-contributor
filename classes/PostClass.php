@@ -26,13 +26,13 @@ class PostClass{
 					$screen
 				);
 			}
-		endif;	
+		endif;
 	}
-	
+
 
 	/**
 	 * Prints the box content.
-	 * 
+	 *
 	 * @param WP_Post $post The object for the current post/page.
 	 */
 	public function contributor_meta_box_callback( $post ) {
@@ -44,21 +44,21 @@ class PostClass{
 		 * Use get_post_meta() to retrieve an existing value
 		 * from the database and use the value for the form.
 		 */
-		 
+
 		$allUser = get_post_meta( $post->ID,  'contributedUsers', true );
 		if(!is_array($allUser)){
 			$allUser = [];
 		}else{
 			$allUser = explode(',',$allUser['postauthors']);
 		}
-		
+
 		/*
 		*
 		* Admin User Fetch Here
 		*
 		*/
 		$adminuser = $this->find_user_list('Administrator');
-		
+
 		echo '<div class="displayflex">';
 		echo '<div class="col4"><div class="paddLabel"><label for="contributorArrayAdmin">';
 		_e( 'Admin Users', 'contributor_textdomain' );
@@ -73,14 +73,14 @@ class PostClass{
 			}
 		}
 		echo '</div>';
-		
+
 		/*
 		*
 		* Author User Fetch Here
 		*
 		*/
 		$authors = $this->find_user_list('Author');
-		
+
 		echo '<div class="col4"><div class="paddLabel"><label for="contributorArrayAuthor">';
 		_e( 'Author Users', 'contributor_textdomain' );
 		echo '</label></div>';
@@ -94,7 +94,7 @@ class PostClass{
 			}
 		}
 		echo '</div>';
-		
+
 		/*
 		*
 		* Editor User Fetch Here
@@ -117,9 +117,9 @@ class PostClass{
 	}
 
 	/**
-	 * 
+	 *
 	 * Saving our custom data!
-	 * 
+	 *
 	 */
 	public function contributor_save_meta_box( $post_id ) {
 
@@ -157,36 +157,36 @@ class PostClass{
 			return;
 		}
 
-		
+
 		/*
 		* Field Check For Admin
 		*/
 		if(is_array( $_POST['contributorArrayAdmin'] ))
 			$selectedUser['postauthors'] = implode(',',$_POST['contributorArrayAdmin']);
-		
+
 
 		/*
 		* Field Check For Author
-		*/	
+		*/
 		if(is_array( $_POST['contributorArrayAuthor'] ))
 			if($selectedUser['postauthors'])
 				$selectedUser['postauthors'] .= ','.implode(',',$_POST['contributorArrayAuthor']);
 			else
 				$selectedUser['postauthors'] .= implode(',',$_POST['contributorArrayAuthor']);
-		
+
 		/*
 		* Field Check For Editor
 		*/
-		if(is_array( $_POST['contributorArrayEditor'] ))
+		if( ! empty( $_POST['contributorArrayEditor'] ) && is_array( $_POST['contributorArrayEditor'] ))
 			if($selectedUser['postauthors'])
 				$selectedUser['postauthors'] .= ','.implode(',',$_POST['contributorArrayEditor']);
 			else
 				$selectedUser['postauthors'] .= implode(',',$_POST['contributorArrayEditor']);
-			
+
 		// Update the meta field in the database.
 		update_post_meta( $post_id, 'contributedUsers', $selectedUser );
 	}
-	
+
 	/*
 	*
 	* Load All User Of Particular Role
