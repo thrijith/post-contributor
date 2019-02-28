@@ -15,6 +15,5 @@ action "WordPress Plugin Deploy" {
   secrets = ["SVN_PASSWORD", "SVN_USERNAME"]
   env = {
     SLUG = "post-contributor"
-    ASSETS_DIR = "assets"
   }
 }
