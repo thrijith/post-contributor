@@ -51,6 +51,10 @@ Yes, currently it working only for three user i.e. Administrator, Author and Edi
 
 == Changelog ==
 
+= 1.0.3 [March 05, 2019] =
+* Updated
+ * Style of plugin settings.
+
 = 1.0.1 [February 20, 2019] =
 
 * FIXED

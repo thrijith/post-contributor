@@ -23,6 +23,8 @@ You should have received a copy of the GNU General Public License
 along with Post Contributor. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
 */
 
+define( 'POST_CONTRIBUTOR_ASSETS', plugins_url(  '/', __FILE__ ) . 'built_assets/' );
+
 class ExecutableClass
 {
 
