@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 Plugin Name: Post Contributor
 Plugin URI:  http://coffeecupweb.com/post-contributors
 Description: Very handy plugin to show author contribution in particular post
-Version:     1.0.1
+Version:     1.0.3
 Author:      Abhijit Rakas
 Author URI:  http://coffeecupweb.com/post-contributors
 License:     GPL2
@@ -22,6 +22,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with Post Contributor. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
 */
+
+define( 'POST_CONTRIBUTOR_ASSETS', plugins_url(  '/', __FILE__ ) . 'built_assets/' );
 
 class ExecutableClass
 {

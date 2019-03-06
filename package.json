@@ -1,0 +1,35 @@
+{
+  "name": "post-contributor",
+  "version": "1.0.2",
+  "description": "Very handy plugin to show author contribution in particular post",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thrijith/post-contributor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thrijith/post-contributor/issues"
+  },
+  "homepage": "https://github.com/thrijith/post-contributor#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.4.10",
+    "css-mqpacker": "^7.0.0",
+    "cssnano": "^4.1.10",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.6.1",
+    "gulp-deporder": "^1.1.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss-assets": "^5.0.0"
+  },
+  "dependencies": {
+    "run-sequence": "^2.2.1"
+  }
+}

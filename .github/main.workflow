@@ -11,9 +11,12 @@ action "tag" {
 
 action "WordPress Plugin Deploy" {
   needs = ["tag"]
-  uses = "10up/actions-wordpress/dotorg-plugin-deploy@master"
-  secrets = ["SVN_PASSWORD", "SVN_USERNAME"]
+  uses = "thrijith/github-actions-library/wp-plugin-deploy@deploy"
+  secrets = ["WORDPRESS_USERNAME", "WORDPRESS_PASSWORD"]
   env = {
     SLUG = "post-contributor"
+    CUSTOM_COMMAND = "gulp build"
+    CUSTOM_PATH = "post-contributor"
+    EXCLUDE_LIST = "asset_sources/"
   }
 }
