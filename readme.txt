@@ -3,7 +3,7 @@ Contributors: abhijitrakas
 Tags: contributors, post, post contributors, contributors post, contributor, post contributor
 Requires at least: 3.8
 Tested up to: 5.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ Yes, currently it working only for three user i.e. Administrator, Author and Edi
 4. Select post contributors
 
 == Changelog ==
+= 1.0.4 [March 06, 2019] =
+* Updated
+
+ * Style of plugin settings.
 
 = 1.0.3 [March 05, 2019] =
 * Updated
