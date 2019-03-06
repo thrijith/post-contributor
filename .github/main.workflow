@@ -16,7 +16,6 @@ action "WordPress Plugin Deploy" {
   env = {
     SLUG = "post-contributor"
     CUSTOM_COMMAND = "gulp build"
-    CUSTOM_PATH = "post-contributor"
-    EXCLUDE_LIST = "asset_sources/"
+    EXCLUDE_LIST = "asset_sources/ .gitignore gulpfile.js package.json package-lock.json README.md"
   }
 }

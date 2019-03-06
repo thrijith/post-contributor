@@ -15,8 +15,8 @@ var
 
 	// folders
 	folder = {
-		src  : 'post-contributor/asset_sources/',
-		build: 'post-contributor/built_assets/'
+		src  : 'asset_sources/',
+		build: 'built_assets/'
 	};
 
 // JavaScript processing
