@@ -11,7 +11,7 @@ action "tag" {
 
 action "WordPress Plugin Deploy" {
   needs = ["tag"]
-  uses = "thrijith/github-actions-library/wp-plugin-deploy@deploy"
+  uses = "thrijith/github-actions-library/wp-plugin-deploy@feature/wp-plugin-deploy"
   secrets = ["WORDPRESS_USERNAME", "WORDPRESS_PASSWORD"]
   env = {
     SLUG = "post-contributor"
