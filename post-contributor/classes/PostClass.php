@@ -204,7 +204,7 @@ class PostClass{
 			}
 			return $authrUser;
 		}
-		return 'No Author User Found';
+		return 'No Author User Found!';
 	}
 }
 
