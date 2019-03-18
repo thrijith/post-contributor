@@ -1,28 +1,28 @@
 <?php
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-class PostClass{
+class PostClass {
 	/*
 	*
 	* Load All Hook On Class Object Created
 	*
 	*/
-	public function __construct(){
-		add_action( 'add_meta_boxes', [$this,'contributor_add_meta_box'] );
-		add_action( 'save_post', [$this,'contributor_save_meta_box'] );
+	public function __construct() {
+		add_action( 'add_meta_boxes', [ $this, 'contributor_add_meta_box' ] );
+		add_action( 'save_post', [ $this, 'contributor_save_meta_box' ] );
 	}
 
 	/**
 	 * Adds a box to the main column on the Post and Page edit screens.
 	 */
 	public function contributor_add_meta_box() {
-		if(get_option('all_posts_type')):
-			$types = explode(',',get_option('all_posts_type'));
+		if ( get_option( 'all_posts_type' ) ):
+			$types = explode( ',', get_option( 'all_posts_type' ) );
 			foreach ( $types as $screen ) {
 				add_meta_box(
 					'contributorID',
 					__( 'Post Contributor', 'contributor_textdomain' ),
-					[$this,'contributor_meta_box_callback'],
+					[ $this, 'contributor_meta_box_callback' ],
 					$screen
 				);
 			}
@@ -45,11 +45,11 @@ class PostClass{
 		 * from the database and use the value for the form.
 		 */
 
-		$allUser = get_post_meta( $post->ID,  'contributedUsers', true );
-		if(!is_array($allUser)){
+		$allUser = get_post_meta( $post->ID, 'contributedUsers', true );
+		if ( ! is_array( $allUser ) ) {
 			$allUser = [];
-		}else{
-			$allUser = explode(',',$allUser['postauthors']);
+		} else {
+			$allUser = explode( ',', $allUser['postauthors'] );
 		}
 
 		/*
@@ -57,18 +57,18 @@ class PostClass{
 		* Admin User Fetch Here
 		*
 		*/
-		$adminuser = $this->find_user_list('Administrator');
+		$adminuser = $this->find_user_list( 'Administrator' );
 
 		echo '<div class="displayflex">';
 		echo '<div class="col4"><div class="paddLabel"><label for="contributorArrayAdmin">';
 		_e( 'Admin Users', 'contributor_textdomain' );
 		echo '</label></div>';
-		if(is_array($adminuser)){
-			foreach($adminuser as $admin){
-				if(in_array($admin['id'],$allUser)){
-					echo '<div class="gapCheck"><input type="checkbox" checked="checked" id="contributorArrayAdmin" name="contributorArrayAdmin[]" value="' . esc_attr( $admin['id'] ) . '" /> '.$admin['uname'].'</div>';
-				}else{
-					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAdmin" name="contributorArrayAdmin[]" value="' . esc_attr( $admin['id'] ) . '" /> '.$admin['uname'].'</div>';
+		if ( is_array( $adminuser ) ) {
+			foreach ( $adminuser as $admin ) {
+				if ( in_array( $admin['id'], $allUser ) ) {
+					echo '<div class="gapCheck"><input type="checkbox" checked="checked" id="contributorArrayAdmin" name="contributorArrayAdmin[]" value="' . esc_attr( $admin['id'] ) . '" /> ' . $admin['uname'] . '</div>';
+				} else {
+					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAdmin" name="contributorArrayAdmin[]" value="' . esc_attr( $admin['id'] ) . '" /> ' . $admin['uname'] . '</div>';
 				}
 			}
 		}
@@ -79,17 +79,17 @@ class PostClass{
 		* Author User Fetch Here
 		*
 		*/
-		$authors = $this->find_user_list('Author');
+		$authors = $this->find_user_list( 'Author' );
 
 		echo '<div class="col4"><div class="paddLabel"><label for="contributorArrayAuthor">';
 		_e( 'Author Users', 'contributor_textdomain' );
 		echo '</label></div>';
-		if(is_array($authors)){
-			foreach($authors as $userauthor){
-				if(in_array($userauthor['id'],$allUser)){
-					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAuthor" checked="checked" name="contributorArrayAuthor[]" value="' . esc_attr( $userauthor['id'] ) . '" /> '.$userauthor['uname'].'</div>';
-				}else{
-					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAuthor" name="contributorArrayAuthor[]" value="' . esc_attr( $userauthor['id'] ) . '" /> '.$userauthor['uname'].'</div>';
+		if ( is_array( $authors ) ) {
+			foreach ( $authors as $userauthor ) {
+				if ( in_array( $userauthor['id'], $allUser ) ) {
+					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAuthor" checked="checked" name="contributorArrayAuthor[]" value="' . esc_attr( $userauthor['id'] ) . '" /> ' . $userauthor['uname'] . '</div>';
+				} else {
+					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayAuthor" name="contributorArrayAuthor[]" value="' . esc_attr( $userauthor['id'] ) . '" /> ' . $userauthor['uname'] . '</div>';
 				}
 			}
 		}
@@ -100,16 +100,16 @@ class PostClass{
 		* Editor User Fetch Here
 		*
 		*/
-		$editoruser = $this->find_user_list('Editor');
+		$editoruser = $this->find_user_list( 'Editor' );
 		echo '<div class="col4"><div class="paddLabel"><label for="contributorArrayEditor">';
 		_e( 'Editor Users', 'contributor_textdomain' );
 		echo '</label></div>';
-		if(is_array($editoruser)){
-			foreach($editoruser as $usereditors){
-				if(in_array($usereditors['id'],$allUser)){
-					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayEditor" checked="checked" name="contributorArrayEditor[]" value="' . esc_attr( $usereditors['id'] ) . '"  /> '.$usereditors['uname'].'</div>';
-				}else{
-					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayEditor" name="contributorArrayEditor[]" value="' . esc_attr( $usereditors['id'] ) . '"  /> '.$usereditors['uname'].'</div>';
+		if ( is_array( $editoruser ) ) {
+			foreach ( $editoruser as $usereditors ) {
+				if ( in_array( $usereditors['id'], $allUser ) ) {
+					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayEditor" checked="checked" name="contributorArrayEditor[]" value="' . esc_attr( $usereditors['id'] ) . '"  /> ' . $usereditors['uname'] . '</div>';
+				} else {
+					echo '<div class="gapCheck"><input type="checkbox" id="contributorArrayEditor" name="contributorArrayEditor[]" value="' . esc_attr( $usereditors['id'] ) . '"  /> ' . $usereditors['uname'] . '</div>';
 				}
 			}
 		}
@@ -161,27 +161,32 @@ class PostClass{
 		/*
 		* Field Check For Admin
 		*/
-		if(is_array( $_POST['contributorArrayAdmin'] ))
-			$selectedUser['postauthors'] = implode(',',$_POST['contributorArrayAdmin']);
+		if ( is_array( $_POST['contributorArrayAdmin'] ) ) {
+			$selectedUser['postauthors'] = implode( ',', $_POST['contributorArrayAdmin'] );
+		}
 
 
 		/*
 		* Field Check For Author
 		*/
-		if(is_array( $_POST['contributorArrayAuthor'] ))
-			if($selectedUser['postauthors'])
-				$selectedUser['postauthors'] .= ','.implode(',',$_POST['contributorArrayAuthor']);
-			else
-				$selectedUser['postauthors'] .= implode(',',$_POST['contributorArrayAuthor']);
+		if ( is_array( $_POST['contributorArrayAuthor'] ) ) {
+			if ( $selectedUser['postauthors'] ) {
+				$selectedUser['postauthors'] .= ',' . implode( ',', $_POST['contributorArrayAuthor'] );
+			} else {
+				$selectedUser['postauthors'] .= implode( ',', $_POST['contributorArrayAuthor'] );
+			}
+		}
 
 		/*
 		* Field Check For Editor
 		*/
-		if( ! empty( $_POST['contributorArrayEditor'] ) && is_array( $_POST['contributorArrayEditor'] ))
-			if($selectedUser['postauthors'])
-				$selectedUser['postauthors'] .= ','.implode(',',$_POST['contributorArrayEditor']);
-			else
-				$selectedUser['postauthors'] .= implode(',',$_POST['contributorArrayEditor']);
+		if ( ! empty( $_POST['contributorArrayEditor'] ) && is_array( $_POST['contributorArrayEditor'] ) ) {
+			if ( $selectedUser['postauthors'] ) {
+				$selectedUser['postauthors'] .= ',' . implode( ',', $_POST['contributorArrayEditor'] );
+			} else {
+				$selectedUser['postauthors'] .= implode( ',', $_POST['contributorArrayEditor'] );
+			}
+		}
 
 		// Update the meta field in the database.
 		update_post_meta( $post_id, 'contributedUsers', $selectedUser );
@@ -192,18 +197,20 @@ class PostClass{
 	* Load All User Of Particular Role
 	*
 	*/
-	public function find_user_list($role){
-		$args = array( 'role' => $role );
+	public function find_user_list( $role ) {
+		$args       = array( 'role' => $role );
 		$user_query = new WP_User_Query( $args );
 		// User Loop
 		if ( ! empty( $user_query->results ) ) {
 			foreach ( $user_query->results as $user ) {
 				$users['id']    = $user->ID;
-				$users['uname'] = ucfirst($user->display_name);
+				$users['uname'] = ucfirst( $user->display_name );
 				$authrUser[]    = $users;
 			}
+
 			return $authrUser;
 		}
+
 		return 'No Author User Found!';
 	}
 }
