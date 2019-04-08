@@ -2,8 +2,8 @@
 Contributors: abhijitrakas
 Tags: contributors, post, post contributors, contributors post, contributor, post contributor
 Requires at least: 3.8
-Tested up to: 5.1
-Stable tag: 1.0.4
+Tested up to: 5.1.1
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,10 +50,19 @@ Yes, currently it working only for three user i.e. Administrator, Author and Edi
 4. Select post contributors
 
 == Changelog ==
+= 1.0.9 [April 1, 2019] =
+
+= 1.0.8 [March 19, 2019] =
+
+= 1.0.7 [March 18, 2019] =
+
+= 1.0.6 [March 18, 2019] =
+
+= 1.0.5 [March 18, 2019] =
+* Update return message
+
 = 1.0.4 [March 06, 2019] =
 * Updated
-
- * Style of plugin settings.
 
 = 1.0.3 [March 05, 2019] =
 * Updated
@@ -67,7 +76,7 @@ Yes, currently it working only for three user i.e. Administrator, Author and Edi
  * Fix PHP Notices on Post Edit Page.
 
 == Upgrade Notice ==
-v1.0.3 with design changes.
+v1.0.8 with message changes.
 
 == Arbitrary section ==
 
