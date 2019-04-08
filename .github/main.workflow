@@ -5,7 +5,6 @@ workflow "Deploy" {
 
 # Filter for tag
 action "tag" {
-    needs = ["create"]
     uses = "actions/bin/filter@master"
     args = "tag"
 }
