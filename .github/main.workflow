@@ -1,6 +1,6 @@
 workflow "Deploy" {
-  resolves = ["WordPress Plugin Deploy"]
   on = "create"
+  resolves = ["WordPress Plugin Deploy"]
 }
 
 # Filter for tag
