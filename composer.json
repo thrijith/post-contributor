@@ -1,0 +1,22 @@
+{
+  "name": "thrijith/post-contributor",
+  "description": "Very handy plugin to show author contribution in particular post",
+  "keywords": ["wordpress", "plugin", "contributors", "post contributors"],
+  "homepage": "https://github.com/thrijith/post-contributor/",
+  "license": "GPL-2.0+",
+  "authors": [{
+    "name": "thrijith",
+    "email": "thrijith13@gmail.com",
+    "homepage": "https://github.com/thrijith"
+  }],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3.2",
+    "composer/installers": "^1.0"
+  },
+  "require-dev": {
+    "wpreadme2markdown/wpreadme2markdown": "*"
+  }
+}

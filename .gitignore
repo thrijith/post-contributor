@@ -1,3 +1,4 @@
 built_assets
 node_modules
 .idea
+vendor
