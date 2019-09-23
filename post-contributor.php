@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 Plugin Name: Post Contributor
 Plugin URI:  http://coffeecupweb.com/post-contributors
 Description: Very handy plugin to show author contribution in particular post
-Version:     1.1.2
+Version:     1.1.3
 Author:      Abhijit Rakas
 Author URI:  http://coffeecupweb.com/post-contributors
 License:     GPL2
