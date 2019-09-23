@@ -1,7 +1,7 @@
 on:
   create:
     tags:
-      '2.*'
+      2.*
 name: Deploy
 jobs:
   tag:
