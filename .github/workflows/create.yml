@@ -1,7 +1,11 @@
 on:
-  create:
+  push:
     branches-ignore:
       - develop
+    tags-ignore:
+      - '*beta*'
+      - '*rc*'
+      - '*RC*'
 name: Deploy
 jobs:
   tag:
