@@ -3,9 +3,9 @@ on:
     branches:
       - master
     tags-ignore:
-      - *.beta*
-      - *.rc*
-      - *.RC*
+      - '*.beta'
+      - '*.rc*'
+      - '*.RC*'
 name: Deploy
 jobs:
   tag:
