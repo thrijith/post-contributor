@@ -1,0 +1,20 @@
+on: push
+name: Deploy
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: tag
+      uses: actions/bin/filter@master
+      with:
+        args: tag
+    - name: WordPress Plugin Deploy
+      uses: thrijith/github-actions-library/wp-plugin-deploy@deploy
+      env:
+        CUSTOM_COMMAND: gulp build
+        CUSTOM_PATH: post-contributor
+        EXCLUDE_LIST: asset_sources/
+        SLUG: post-contributor
+        WORDPRESS_PASSWORD: ${{ secrets.WORDPRESS_PASSWORD }}
+        WORDPRESS_USERNAME: ${{ secrets.WORDPRESS_USERNAME }}
