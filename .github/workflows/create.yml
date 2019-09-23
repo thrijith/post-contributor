@@ -1,7 +1,4 @@
-on:
-  create:
-    tags:
-      2.*
+on: create
 name: Deploy
 jobs:
   tag:
