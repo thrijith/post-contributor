@@ -1,7 +1,5 @@
 on:
   create:
-    branches:
-      - master
     tags-ignore:
       - '*.beta'
       - '*.rc*'
