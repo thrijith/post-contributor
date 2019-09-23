@@ -1,4 +1,10 @@
 on: create
+  branches:
+    - master
+  tags-ignore:
+    - *.beta*
+    - *.rc*
+    - *.RC*
 name: Deploy
 jobs:
   tag:
