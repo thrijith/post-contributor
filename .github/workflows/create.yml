@@ -1,7 +1,7 @@
 on:
-  push:
-    branches:
-      - master
+  create:
+    tags:
+      '2.*'
 name: Deploy
 jobs:
   tag:
