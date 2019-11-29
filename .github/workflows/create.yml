@@ -4,9 +4,9 @@ jobs:
   tag:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - name: tag
-      uses: actions/bin/filter@master
+      uses: actions/bin/filter@v1
       with:
         args: tag
     - name: WordPress Plugin Deploy
